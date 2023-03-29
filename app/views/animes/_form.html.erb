@@ -1,0 +1,57 @@
+<%= form_with(model: anime) do |form| %>
+  <% if anime.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(anime.errors.count, "error") %> prohibited this anime from being saved:</h2>
+
+      <ul>
+        <% anime.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :title_english, style: "display: block" %>
+    <%= form.text_field :title_english %>
+  </div>
+
+  <div>
+    <%= form.label :title_native, style: "display: block" %>
+    <%= form.text_field :title_native %>
+  </div>
+
+  <div>
+    <%= form.label :description, style: "display: block" %>
+    <%= form.text_area :description %>
+  </div>
+
+  <div>
+    <%= form.label :score, style: "display: block" %>
+    <%= form.text_field :score %>
+  </div>
+
+  <div>
+    <%= form.label :aired_start, style: "display: block" %>
+    <%= form.date_field :aired_start %>
+  </div>
+
+  <div>
+    <%= form.label :aired_end, style: "display: block" %>
+    <%= form.date_field :aired_end %>
+  </div>
+
+  <div>
+    <%= form.label :premiered, style: "display: block" %>
+    <%= form.date_field :premiered %>
+  </div>
+
+  <div>
+    <%= form.label :episodes, style: "display: block" %>
+    <%= form.number_field :episodes %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>
